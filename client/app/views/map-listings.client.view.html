@@ -19,16 +19,31 @@
     https://angular-ui.github.io/angular-google-maps/#!/api/windows
   -->
 
- <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Eh0llhJjNLJUggWLNaDBJ6Mx-RtKJ80 &callback=myMap"></script>
+
+<div ng-="listing" ng-controller="ListingsController">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" pan="true" options="options" bounds="map.bounds">
+	
+		
+        <ui-gmap-markers ng-repeat="listings" idkey="'_id'" coords="'coordinates'" click="'onClick'" events			="listings.events">
+				<ui-gmap-windows show="show">
+                <div ng-non-bindable>{{title}}</div>
+            	</ui-gmap-windows>
+		</ui-gmap-markers>
 
 
-<div id="map_canvas" ng-controller="mainCtrl">
-    <ui-gmap-google-map center="map.center"
-						pan="true" 
-						zoom="map.zoom" 
-						options="options">
-	</ui-gmap-google-map>
+
+	
+
+    </ui-gmap-google-map>
 </div>
 
 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+
+
     <!-- other ui-gmap-directives here -->
+
+
