@@ -9,7 +9,7 @@ app.config(['$urlRouterProvider', '$locationProvider',
   function($urlRouterProvider, $locationProvider) {
     /* https://docs.angularjs.org/api/ng/provider/$locationProvider */
     $locationProvider.html5Mode(true);
-
+   
     /* go to the '/listings' URL if an invalid route is provided */
     $urlRouterProvider.otherwise('/listings');
   }
