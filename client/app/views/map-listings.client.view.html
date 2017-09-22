@@ -19,31 +19,32 @@
     https://angular-ui.github.io/angular-google-maps/#!/api/windows
   -->
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Eh0llhJjNLJUggWLNaDBJ6Mx-RtKJ80 &callback=myMap"></script>
 
-<div ng-="listing" ng-controller="ListingsController">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" pan="true" options="options" bounds="map.bounds">
-	
-		
-        <ui-gmap-markers ng-repeat="listings" idkey="'_id'" coords="'coordinates'" click="'onClick'" events			="listings.events">
-				<ui-gmap-windows show="show">
-                <div ng-non-bindable>{{title}}</div>
-            	</ui-gmap-windows>
-		</ui-gmap-markers>
+  <div class="row" ng-controller="ListingsController" ng-init="initialize()">
+    <div class="col-md-offset-1 col-md-10">
+      <div ng-show="error" class="text-danger">
+        <strong ng-bind="error"></strong>
+      </div>
+      <div class="jumbotron">
+        <img id="loader" ng-show="loading" src="/../../img/484.gif">
 
+        <div id="map_canvas">
+          <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+            <ui-gmap-markers models="markers" coords="'coordinates'" idkey="'_id'">
+                <ui-gmap-windows>
+                    <div ng-non-bindable>
+                    Building Name: {{name}} <br> 
+                    Code: {{code}} <br> 
+                    Address: {{address}}</div>
+                </ui-gmap-windows>          
 
+            </ui-gmap-markers>
+    
+          </ui-gmap-google-map>
+      </div>
 
-	
-
-    </ui-gmap-google-map>
+</ui-gmap-google-map>
 </div>
-
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-
-
-
-    <!-- other ui-gmap-directives here -->
-
-
+</div>
+</div>
+</div>
